@@ -329,10 +329,10 @@ This architecture scales to massive applications. The unidirectional data flow m
             (.catch (fn [err] (go (>! response-ch :error)))))
 
         ;; Race between timeout and response
-        (let [result (alts! [response-ch timeout-ch])]
-          (>! ch (if (= (second result) timeout-ch)
+        (let [[result ch] (alts! [response-ch timeout-ch])]
+          (>! ch (if (= ch timeout-ch)
                    :timeout
-                   (first result)))))
+                   result))))
     ch))
 
 ;; Use it

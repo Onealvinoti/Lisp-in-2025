@@ -301,10 +301,9 @@ let g:parinfer_enabled = 1
 function! EvalAndReplace()
   " Evaluate expression and replace with result
   normal! yab
-  let result = system('clojure -e "' . @" . '"')
+  let result = system('clojure -e "' . escape(@", '"') . '"')
   normal! vab"_c
-  execute "normal! i" . result
-endfunction
+  execute "normal! i" . substitute(result, '\n$', '', '')
 
 nnoremap <leader>er :call EvalAndReplace()<CR>
 ```

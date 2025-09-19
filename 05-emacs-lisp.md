@@ -438,8 +438,8 @@ Each of these isn't a plugin—it's Emacs Lisp code that extends Emacs into new 
 
 Org-mode deserves special mention. It started as an outlining tool and evolved into a complete personal information manager, all in Emacs Lisp:
 
-```elisp
-;; Literate programming
+```org
+;; Literate programming in Org-mode
 #+BEGIN_SRC emacs-lisp
 (defun fibonacci (n)
   (if (<= n 1)
@@ -500,7 +500,7 @@ When your editor is a Lisp environment, debugging is a first-class experience:
 ;; Benchmark expressions
 (benchmark-run 1000
   (mapcar #'1+ (number-sequence 1 1000)))
-;; => (0.004256 0 0.0)  ; time, GC runs, GC time
+;; => (0.004256 0 0.0)  ; elapsed time, GC count, GC time
 ```
 
 ## The Emacs Lisp Mindset

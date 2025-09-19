@@ -79,7 +79,7 @@ Let's explore what makes Common Lisp special:
 CL-USER> (defparameter *my-data* '(1 2 3 4 5))
 *MY-DATA*
 
-CL-USER> (mapcar #'(lambda (x) (* x x)) *my-data*)
+CL-USER> (mapcar (lambda (x) (* x x)) *my-data*)
 (1 4 9 16 25)
 
 ;; Multiple return values - because sometimes one isn't enough
@@ -136,7 +136,8 @@ Let's build something real to see CLOS in action:
         (format t "Withdrew $~,2F. New balance: $~,2F~%"
                 amount (account-balance account))
         amount)
-      (error "Insufficient funds!")))
+      (error "Insufficient funds for withdrawal of $~,2F from balance $~,2F"
+             amount (account-balance account))))
 
 (defmethod withdraw ((account checking-account) amount)
   ;; Checking accounts can overdraft
@@ -192,12 +193,10 @@ Let's see it in action:
                  :overdraft-limit 200))
 
 ;; Use them
-CL-USER> (transfer *savings* *checking* 15000)
-Attempting to withdraw $15000.00 from account SAV-001
-Large transfer flagged for review.
-Withdrew $15000.00. New balance: $-10000.00
-WARNING: Low balance!
-Transferred $15000.00
+CL-USER> (transfer *savings* *checking* 1500)
+Attempting to withdraw $1500.00 from account SAV-001
+Withdrew $1500.00. New balance: $3500.00
+Transferred $1500.00
 ```
 
 But wait, there's more! CLOS has a Meta-Object Protocol (MOP) that lets you change how the object system itself works:
@@ -207,10 +206,10 @@ But wait, there's more! CLOS has a Meta-Object Protocol (MOP) that lets you chan
 (defclass logged-class (standard-class) ())
 
 (defmethod sb-mop:slot-value-using-class :around
-    ((class logged-class) object slot)
+    ((class logged-class) object slot-def)
   (let ((value (call-next-method)))
     (format t "~&Reading slot ~A: ~A~%"
-            (sb-mop:slot-definition-name slot) value)
+            (sb-mop:slot-definition-name slot-def) value)
     value))
 
 ;; Use it
@@ -305,13 +304,13 @@ Let's build something real: a simple web service with Hunchentoot. This will sho
 (defparameter *next-id* 4)
 
 ;; HTML generation with CL-WHO
-(defmacro with-html-output-to-string (&body body)
-  `(with-html-output-to-string (*standard-output* nil :prologue t)
+(defmacro with-page-output (&body body)
+  `(cl-who:with-html-output-to-string (*standard-output* nil :prologue t)
      ,@body))
 
 ;; Define routes
 (define-easy-handler (index :uri "/") ()
-  (with-html-output-to-string
+  (with-page-output
     (:html
      (:head
       (:title "Common Lisp TODO")
@@ -344,10 +343,9 @@ Let's build something real: a simple web service with Hunchentoot. This will sho
     (incf *next-id*))
   (redirect "/"))
 
-(define-easy-handler (toggle-todo :uri "/toggle/:id") ()
-  (let* ((id (parse-integer (nth 1 (split-sequence:split-sequence
-                                     #\/ (request-uri*)))))
-         (todo (find id *todos* :key (lambda (x) (getf x :id)))))
+(define-easy-handler (toggle-todo :uri "/toggle") (id)
+  (let* ((todo-id (parse-integer id))
+         (todo (find todo-id *todos* :key (lambda (x) (getf x :id)))))
     (when todo
       (setf (getf todo :done) (not (getf todo :done)))))
   "OK")

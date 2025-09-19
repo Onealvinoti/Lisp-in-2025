@@ -294,9 +294,11 @@ user=> (core/create-todo "Learn Clojure")
 {:id 1 :title "Learn Clojure" :completed false ...}
 
 ;; Redefine functions on the fly
-user=> (defn core/create-todo [title]
-         (println "Creating:" title)
-         (jdbc/execute-one! ...))
+user=> (in-ns 'myapp.core)
+myapp.core=> (defn create-todo [title]
+               (println "Creating:" title)
+               (jdbc/execute-one! datasource
+                 ["INSERT INTO todos (title) VALUES (?) RETURNING *" title]))
 
 ;; Test the new version
 user=> (core/create-todo "Master Clojure")
@@ -336,8 +338,7 @@ This workflow is transformative. You're not restarting your application to see c
   (println first second rest))  ; 1 2 (3 4 5)
 
 ;; Nested destructuring
-(let [{:keys [user]
-       {:keys [name email]} :user} {:user {:name "Bob" :email "bob@example.com"}}]
+(let [{{:keys [name email]} :user} {:user {:name "Bob" :email "bob@example.com"}}]
   (println name email))  ; Bob bob@example.com
 ```
 

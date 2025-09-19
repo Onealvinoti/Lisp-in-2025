@@ -35,10 +35,15 @@ In Lisp, your code is just lists. The same lists you manipulate as data. Observe
 ;; This is code - the exact same list, evaluated
 (+ 1 2 3)  ; => 6
 
-;; This is a program that writes programs
+;; This is a program that writes programs (Clojure syntax)
 (defmacro unless [test & body]
   `(if (not ~test)
      (do ~@body)))
+
+;; Or in Common Lisp syntax:
+(defmacro unless (test &body body)
+  `(if (not ,test)
+     (progn ,@body)))
 ```
 
 That macro you just saw? It's a program that takes code as input and returns code as output. While developers in other languages are writing code generators, templating engines, and complex build tools, Lisp programmers are casually transforming their programs at compile time with the same tools they use to process regular data.
@@ -68,7 +73,7 @@ Before we dive deep, let's see what makes Lisp special with a quick tour across 
   (->> users
        (filter :active)
        (map :email)
-       (map str/lower-case)
+       (map clojure.string/lower-case)
        distinct))
 
 ;; Use it
@@ -84,10 +89,10 @@ Before we dive deep, let's see what makes Lisp special with a quick tour across 
 (defgeneric greet (entity))
 
 (defmethod greet ((entity person))
-  (format nil "Hello, ~A!" (person-name entity)))
+  (format nil "Hello, ~A!" (name entity)))
 
 (defmethod greet ((entity robot))
-  (format nil "GREETINGS, HUMAN. I AM ~A." (robot-designation entity)))
+  (format nil "GREETINGS, HUMAN. I AM ~A." (designation entity)))
 
 ;; The system automatically dispatches to the right method
 (greet (make-instance 'person :name "Alice"))  ; => "Hello, Alice!"

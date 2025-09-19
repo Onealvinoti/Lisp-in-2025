@@ -18,6 +18,7 @@ Here's McCarthy's original eval function, the heart of Lisp, in its mathematical
 
 ```lisp
 ;; The original eval - the universal function
+;; Note: This is McCarthy's original mathematical definition
 (defun eval (e a)
   (cond
     ((atom e) (assoc e a))
@@ -33,6 +34,19 @@ Here's McCarthy's original eval function, the heart of Lisp, in its mathematical
        (t (eval (cons (assoc (car e) a) (cdr e)) a))))
     ((eq (caar e) 'lambda)
      (eval (caddar e) (append (pair (cadar e) (evlis (cdr e) a)) a)))))
+
+;; Required helper functions for the original eval
+(defun evcon (c a)
+  (cond ((eval (caar c) a) (eval (cadar c) a))
+        (t (evcon (cdr c) a))))
+
+(defun evlis (m a)
+  (cond ((null m) nil)
+        (t (cons (eval (car m) a) (evlis (cdr m) a)))))
+
+(defun pair (x y)
+  (cond ((null x) nil)
+        (t (cons (cons (car x) (car y)) (pair (cdr x) (cdr y))))))
 ```
 
 That's it. That's the seed from which the entire Lisp family tree grew. Seven primitive operations (quote, atom, eq, car, cdr, cons, cond), the concept of lambda, and suddenly you have a Turing-complete language.
@@ -160,10 +174,10 @@ Hy transforms Python's runtime into a Lisp machine. You get access to the entire
 (import matplotlib.pyplot :as plt)
 
 (defn plot-sine []
-  (let [x (np.linspace 0 (* 2 np.pi) 100)
-        y (np.sin x)]
-    (plt.plot x y)
-    (plt.show)))
+  (let [x (.linspace np 0 (* 2 np.pi) 100)
+        y (.sin np x)]
+    (.plot plt x y)
+    (.show plt)))
 ```
 
 ## Understanding S-expressions
@@ -180,8 +194,8 @@ That's it. That's the entire syntax of Lisp. Everything else is semantics.
 ;; Atoms
 42
 "hello"
-'symbol
-true
+symbol    ; or 'symbol with quote
+t         ; true in traditional Lisp (nil for false)
 
 ;; Lists (S-expressions)
 (+ 1 2)
@@ -201,12 +215,16 @@ The beauty is that code and data have the same structure. This is homoiconicity,
 ;; Code - the same list, evaluated
 (+ 1 2 3) ; => 6
 
-;; A function that manipulates code as data
+;; A function that manipulates code as data (Clojure syntax)
 (defmacro infix [expr]
   (list (second expr) (first expr) (nth expr 2)))
 
 ;; Use our macro
 (infix (1 + 2)) ; => 3
+
+;; Or in Common Lisp syntax:
+(defmacro infix (expr)
+  (list (second expr) (first expr) (third expr)))
 ```
 
 The power of S-expressions extends beyond macros. They're:

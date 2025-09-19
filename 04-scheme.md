@@ -259,12 +259,15 @@ Even coroutines and generators:
 ```scheme
 ;; A generator using continuations
 (define (make-generator proc)
-  (let ((cont (lambda () (proc (lambda (v) v)))))
+  (let ((cont #f))
     (lambda ()
       (call/cc (lambda (return)
-                 (let ((value (cont)))
-                   (set! cont return)
-                   value))))))
+                 (if cont
+                     (cont return)
+                     (proc (lambda (v)
+                             (call/cc (lambda (k)
+                                        (set! cont k)
+                                        (return v))))))))))))
 
 (define count-gen
   (make-generator
@@ -505,7 +508,9 @@ One of Scheme's most mind-bending exercises is writing Scheme in Scheme. This is
       (let ((params (cadr proc))
             (body (caddr proc))
             (env (cadddr proc)))
-        (eval (cons 'begin body)
+        (eval (if (= (length body) 1)
+                  (car body)
+                  (cons 'begin body))
               (extend-env params args env)))
       (error "Not a procedure" proc)))
 
@@ -558,7 +563,8 @@ Scheme continues to evolve. R7RS (2013) split into a small language (R7RS-small)
 
 (parameterize ((current-output (open-output-string)))
   (display "Hidden output")
-  (get-output-string (current-output)))
+  (let ((str-port (current-output)))
+    (get-output-string str-port)))
 ```
 
 ## The Scheme Enlightenment

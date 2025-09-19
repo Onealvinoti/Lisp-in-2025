@@ -407,8 +407,13 @@ def eval(expr, env):
 
 # Now you have Lisp!
 env = {'+': lambda x, y: x + y, '-': lambda x, y: x - y}
-eval(['define', 'add', ['+', 1, 2]], env)  # Define a function
-eval(['add'], env)  # => 3
+eval(['define', 'three', ['+', 1, 2]], env)  # Define a variable
+print(eval('three', env))  # => 3
+
+# Define a function
+eval(['define', 'square', ['lambda', ['x'], ['*', 'x', 'x']]], env)
+env['*'] = lambda x, y: x * y
+print(eval(['square', 5], env))  # => 25
 ```
 
 Go forth and Lisp. The parentheses await.

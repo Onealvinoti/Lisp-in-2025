@@ -95,11 +95,15 @@ Domain-Specific Languages are where Lisp shines brightest. Let's build a simple 
           fields))
 
 ;; Usage example
+;; Note: -> is not standard Common Lisp, using nested calls instead
 (defparameter *query1*
-  (-> (select *)
-      (from *users*)
-      (where :age > 25)
-      (order-by :age)))
+  (order-by
+    (where
+      (from
+        (select *)
+        *users*)
+      :age > 25)
+    :age))
 
 (execute-query *query1*)
 ;; Returns users older than 25, sorted by age
@@ -575,18 +579,20 @@ One dream of Lisp is portable code. Let's write a library that works across mult
 #+clojure (ns portable-math.core)
 
 ;; Portable function definition
+#+common-lisp
 (defun factorial (n)
-  #+common-lisp
   (if (<= n 1)
       1
-      (* n (factorial (- n 1))))
+      (* n (factorial (- n 1)))))
 
-  #+scheme
+#+scheme
+(define (factorial n)
   (if (<= n 1)
       1
-      (* n (factorial (- n 1))))
+      (* n (factorial (- n 1)))))
 
-  #+clojure
+#+clojure
+(defn factorial [n]
   (if (<= n 1)
       1
       (* n (factorial (dec n)))))
@@ -771,6 +777,6 @@ The projects in this chapter aren't just exercises—they're templates for real 
 
 ---
 
-*"The programmeris omnipotent not as an individual but as an intellect augmented with a programming environment and language that brings out maximum leverage." - Patrick Winston*
+*"The programmer is omnipotent not as an individual but as an intellect augmented with a programming environment and language that brings out maximum leverage." - Patrick Winston*
 
 Final chapter ahead: The future of Lisp. Where is the eternal language heading? What new domains will it conquer? And why, nearly 70 years after its creation, is Lisp more relevant than ever?
