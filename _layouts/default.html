@@ -21,7 +21,8 @@
                 <ol class="chapter-list">
                     {% for chapter in site.book.chapters %}
                     <li>
-                        <a href="{{ '/' | append: chapter.file | relative_url }}"
+                        {% assign chapter_url = chapter.file | replace: '.md', '' %}
+                        <a href="{{ '/' | append: chapter_url | relative_url }}"
                            class="{% if page.url contains chapter.file %}active{% endif %}">
                             {{ chapter.title }}
                         </a>

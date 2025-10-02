@@ -10,7 +10,8 @@
     <div class="nav-links">
         {% if current_index > 0 %}
             {% assign prev_chapter = site.book.chapters[current_index | minus: 1] %}
-            <a href="{{ '/' | append: prev_chapter.file | relative_url }}" class="nav-link prev">
+            {% assign prev_url = prev_chapter.file | replace: '.md', '' %}
+            <a href="{{ '/' | append: prev_url | relative_url }}" class="nav-link prev">
                 <span class="nav-label">← Previous</span>
                 <span class="nav-title">{{ prev_chapter.title }}</span>
             </a>
@@ -21,7 +22,8 @@
         {% assign next_index = current_index | plus: 1 %}
         {% if next_index < site.book.chapters.size %}
             {% assign next_chapter = site.book.chapters[next_index] %}
-            <a href="{{ '/' | append: next_chapter.file | relative_url }}" class="nav-link next">
+            {% assign next_url = next_chapter.file | replace: '.md', '' %}
+            <a href="{{ '/' | append: next_url | relative_url }}" class="nav-link next">
                 <span class="nav-label">Next →</span>
                 <span class="nav-title">{{ next_chapter.title }}</span>
             </a>
