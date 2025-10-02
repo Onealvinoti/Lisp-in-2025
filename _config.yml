@@ -4,9 +4,7 @@ author: "Lisp Enthusiast"
 baseurl: "/Lisp-in-2025"
 url: "https://cloudstreet-dev.github.io"
 
-# Theme settings
-theme: minima
-remote_theme: pages-themes/minimal@v0.2.0
+# Theme settings - using custom layouts and styles
 
 # Plugins
 plugins:
