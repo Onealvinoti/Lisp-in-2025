@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 5: Emacs Lisp - Editor as Lisp Machine"
+---
+
 # Chapter 5: Emacs Lisp - Your Editor is a Lisp Machine
 
 > "Emacs is a great operating system, lacking only a decent editor." - Ancient Programmer Proverb

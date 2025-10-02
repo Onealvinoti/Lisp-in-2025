@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Code+Pro:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    {% seo %}
+</head>
+<body>
+    <div class="book-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="book-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+                <p class="book-subtitle">{{ site.book.subtitle }}</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <h3>Table of Contents</h3>
+                <ol class="chapter-list">
+                    {% for chapter in site.book.chapters %}
+                    <li>
+                        <a href="{{ '/' | append: chapter.file | relative_url }}"
+                           class="{% if page.url contains chapter.file %}active{% endif %}">
+                            {{ chapter.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p class="lisp-quote">(code as data)</p>
+            </div>
+        </aside>
+
+        <main class="content">
+            <article class="chapter">
+                {{ content }}
+            </article>
+
+            {% include navigation.html %}
+        </main>
+    </div>
+
+    <script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>
+</body>
+</html>

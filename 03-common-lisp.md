@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 3: Common Lisp - Industrial Strength"
+---
+
 # Chapter 3: Common Lisp - The Industrial Strength Lisp
 
 > "Common Lisp is politics, not art." - Scott Fahlman

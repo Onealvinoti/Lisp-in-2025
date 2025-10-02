@@ -1,0 +1,78 @@
+title: "Lisp in 2025: A Practical Guide"
+description: "A comprehensive, modern guide to the Lisp family of programming languages"
+author: "Lisp Enthusiast"
+baseurl: "/Lisp-in-2025"
+url: "https://cloudstreet-dev.github.io"
+
+# Theme settings
+theme: minima
+remote_theme: pages-themes/minimal@v0.2.0
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-relative-links
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: lisp
+
+# Navigation
+header_pages:
+  - index.md
+  - 00-table-of-contents.md
+
+# Collections
+collections:
+  chapters:
+    output: true
+    permalink: /:collection/:name/
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .gitignore
+
+# Enable relative links
+relative_links:
+  enabled: true
+  collections: true
+
+# Syntax highlighting
+highlighter: rouge
+
+# Book metadata
+book:
+  subtitle: "The One True Programming Language"
+  version: "2025 Edition"
+  chapters:
+    - title: "Introduction - The Eternal Language"
+      file: "01-introduction.md"
+    - title: "The Lisp Family Tree"
+      file: "02-lisp-family-tree.md"
+    - title: "Common Lisp - Industrial Strength"
+      file: "03-common-lisp.md"
+    - title: "Scheme - The Academic Beauty"
+      file: "04-scheme.md"
+    - title: "Emacs Lisp - Your Editor is a Lisp Machine"
+      file: "05-emacs-lisp.md"
+    - title: "Clojure - The Modern Lisp"
+      file: "06-clojure.md"
+    - title: "ClojureScript - Lisp in the Browser"
+      file: "07-clojurescript.md"
+    - title: "Development Environment"
+      file: "08-development-environment.md"
+    - title: "Practical Projects"
+      file: "09-practical-projects.md"
+    - title: "The Future of Lisp"
+      file: "10-future-of-lisp.md"

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Code+Pro:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    {% seo %}
+</head>
+<body class="home-page">
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ site.title }}</h1>
+            <p class="hero-subtitle">{{ site.book.subtitle }}</p>
+            <p class="hero-description">{{ site.description }}</p>
+            <a href="{{ '/01-introduction.md' | relative_url }}" class="cta-button">Start Reading</a>
+            <a href="{{ '/00-table-of-contents.md' | relative_url }}" class="cta-button secondary">Table of Contents</a>
+        </div>
+    </div>
+
+    <div class="home-content">
+        {{ content }}
+    </div>
+
+    <footer class="home-footer">
+        <p class="lisp-wisdom">"Lisp isn't a language, it's a building material." - Alan Kay</p>
+        <p class="copyright">{{ site.book.version }}</p>
+    </footer>
+</body>
+</html>

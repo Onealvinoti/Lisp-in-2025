@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 9: Practical Projects"
+---
+
 # Chapter 9: Practical Projects Across Lisps
 
 > "Show me your flowcharts and conceal your tables, and I shall continue to be mystified. Show me your tables, and I won't usually need your flowcharts; they'll be obvious." - Fred Brooks

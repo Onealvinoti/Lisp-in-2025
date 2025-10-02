@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 8: Development Environment"
+---
+
 # Chapter 8: Setting Up Your Development Environment
 
 > "A language that doesn't affect the way you think about programming is not worth knowing." - Alan Perlis

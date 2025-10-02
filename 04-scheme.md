@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 4: Scheme - The Academic Beauty"
+---
+
 # Chapter 4: Scheme - The Academic Beauty
 
 > "Programming languages should be designed not by piling feature on top of feature, but by removing the weaknesses and restrictions that make additional features appear necessary." - The Revised⁷ Report on Scheme

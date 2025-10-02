@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 6: Clojure - The Modern Lisp"
+---
+
 # Chapter 6: Clojure - The Modern Lisp
 
 > "It is better to have 100 functions operate on one data structure than 10 functions on 10 data structures." - Alan Perlis

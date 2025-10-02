@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 7: ClojureScript - Lisp in the Browser"
+---
+
 # Chapter 7: ClojureScript - Lisp in the Browser
 
 > "ClojureScript is the most fun I've had programming in 25 years." - David Nolen

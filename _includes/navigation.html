@@ -1,0 +1,33 @@
+{% assign current_index = -1 %}
+{% for chapter in site.book.chapters %}
+    {% if page.url contains chapter.file %}
+        {% assign current_index = forloop.index0 %}
+    {% endif %}
+{% endfor %}
+
+{% if current_index >= 0 %}
+<nav class="page-navigation">
+    <div class="nav-links">
+        {% if current_index > 0 %}
+            {% assign prev_chapter = site.book.chapters[current_index | minus: 1] %}
+            <a href="{{ '/' | append: prev_chapter.file | relative_url }}" class="nav-link prev">
+                <span class="nav-label">← Previous</span>
+                <span class="nav-title">{{ prev_chapter.title }}</span>
+            </a>
+        {% else %}
+            <div class="nav-spacer"></div>
+        {% endif %}
+
+        {% assign next_index = current_index | plus: 1 %}
+        {% if next_index < site.book.chapters.size %}
+            {% assign next_chapter = site.book.chapters[next_index] %}
+            <a href="{{ '/' | append: next_chapter.file | relative_url }}" class="nav-link next">
+                <span class="nav-label">Next →</span>
+                <span class="nav-title">{{ next_chapter.title }}</span>
+            </a>
+        {% else %}
+            <div class="nav-spacer"></div>
+        {% endif %}
+    </div>
+</nav>
+{% endif %}

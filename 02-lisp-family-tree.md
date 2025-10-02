@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 2: The Lisp Family Tree"
+---
+
 # Chapter 2: The Lisp Family Tree
 
 > "The greatest single programming language ever designed." - Alan Kay on Lisp

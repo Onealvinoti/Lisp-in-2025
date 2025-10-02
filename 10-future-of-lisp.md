@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 10: The Future of Lisp"
+---
+
 # Chapter 10: The Future of Lisp
 
 > "Lisp is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use Lisp itself a lot." - Eric Raymond

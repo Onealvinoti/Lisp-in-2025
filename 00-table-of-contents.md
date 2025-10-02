@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Table of Contents"
+---
+
 # Lisp in 2025: A Practical Guide to the One True Programming Language
 
 ## Table of Contents

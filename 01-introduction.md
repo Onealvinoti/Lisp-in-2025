@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Chapter 1: Introduction - The Eternal Language"
+---
+
 # Chapter 1: Introduction - The Eternal Language
 
 > "Lisp isn't a language, it's a building material." - Alan Kay
