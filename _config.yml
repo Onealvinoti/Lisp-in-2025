@@ -32,6 +32,12 @@ collections:
     output: true
     permalink: /:collection/:name/
 
+# Include assets
+include:
+  - _layouts
+  - _includes
+  - assets
+
 # Exclude from processing
 exclude:
   - Gemfile
@@ -40,6 +46,7 @@ exclude:
   - vendor
   - .git
   - .gitignore
+  - JEKYLL_SETUP.md
 
 # Enable relative links
 relative_links:
