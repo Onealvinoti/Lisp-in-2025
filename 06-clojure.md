@@ -343,8 +343,10 @@ This workflow is transformative. You're not restarting your application to see c
   (println first second rest))  ; 1 2 (3 4 5)
 
 ;; Nested destructuring
+{% raw %}
 (let [{{:keys [name email]} :user} {:user {:name "Bob" :email "bob@example.com"}}]
   (println name email))  ; Bob bob@example.com
+{% endraw %}
 ```
 
 ### Threading Macros
